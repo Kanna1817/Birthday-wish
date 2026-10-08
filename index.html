@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Gopika ♥</title>
+  <meta name="description" content="A premium birthday experience for Gopika.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Caveat:wght@500;600&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- 01 — Unlock -->
+  <section id="unlock" class="unlock-screen screen-section">
+    <div class="unlock-layout">
+      <form id="unlockForm" class="unlock-card reveal" novalidate>
+        <div class="flourish"><i></i><span>♡</span><i></i></div>
+        <h2><small>Unlock Your</small><em>Birthday Surprise</em></h2>
+        <p class="muted">Enter your name and birth date to unlock<br>your special birthday page <b>♥</b></p>
+
+        <label class="field-label" for="nameInput">Name</label>
+        <input id="nameInput" class="field f-user" type="text" placeholder="Your name" autocomplete="off">
+
+        <label class="field-label">Date of Birth</label>
+        <div class="dob-wrap">
+          <input id="dobInput" class="field f-cal" type="text" inputmode="numeric" placeholder="DD / MM / YYYY" maxlength="14" autocomplete="off" aria-label="Date of birth">
+          <button type="button" id="dobPick" class="dob-btn" aria-label="Pick date from calendar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#5d7765" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></button>
+          <input id="dobNative" class="dob-native" type="date" min="1980-01-01" max="2020-12-31" tabindex="-1" aria-hidden="true">
+        </div>
+
+        <p id="unlockError" class="form-message error" aria-live="polite"></p>
+        <button class="btn btn-primary full" type="submit">🔒 Unlock My Birthday <span>→</span></button>
+        <p class="hand-note">A special day<br>for a special soul ♡</p>
+      </form>
+    </div>
+  </section>
+
+  <main id="experience" class="hidden">
+    <!-- Navigation -->
+    <header class="site-header">
+      <div class="nav-shell container">
+        <a class="brand" href="#home">Gopika <span>♥</span></a>
+        <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="siteNav" class="site-nav" aria-label="Main navigation">
+          <a class="active" href="#home">Home</a>
+          <a href="#surprise">Surprise</a>
+          <a href="#notes">Notes</a>
+          <a href="#wish">Wish Corner</a>
+          <a href="#magic">Birthday Magic</a>
+          <a href="#balloons">Messages</a>
+          <a href="#night">Night Sky</a>
+          <a href="#note">Birthday Note</a>
+          <a href="#treat">Treat</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 02 — Home -->
+    <section id="home" class="hero section cream">
+      <div class="hero-glow glow-a"></div>
+      <div class="hero-glow glow-b"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">FUTURE DOCTOR IN THE MAKING</p>
+          <h2>Happy Birthday<br><em>Gopika! ♥</em></h2>
+          <p class="hero-text">Celebrating an inspiring future doctor, a radiant soul, and a truly wonderful person.</p>
+          <div class="hero-date"><span>09</span><i></i><span>OCT</span><i></i><span>2004</span></div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#surprise">Open The Surprise ✦</a>
+            <a class="btn btn-ghost" href="#notes">Read Special Notes →</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="medical-ring ring-one"></div>
+          <div class="medical-ring ring-two"></div>
+          <div class="home-doctor-photo">
+            <img src="hero-girl.svg" alt="Illustration of a future doctor from behind with a stethoscope on her shoulders">
+          </div>
+          <div class="future-doctor-badge">
+            <span>FUTURE DOCTOR</span>
+            <strong>Dream • Care • Heal</strong>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <!-- 03 — Surprise -->
+    <section id="surprise" class="section blush">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">A SPECIAL REVEAL</p>
+          <h2>A Special Surprise <em>For You ✦</em></h2>
+          <p>Some surprises are wrapped in ribbon, but the sweetest ones come straight from the heart.</p>
+        </div>
+        <div class="surprise-stage reveal">
+          <div class="surprise-shine"></div>
+          <div class="surprise-seal">G</div>
+          <div class="surprise-ribbon ribbon-v"></div>
+          <div class="surprise-ribbon ribbon-h"></div>
+          <button id="surpriseButton" class="surprise-button" type="button">Open The Surprise</button>
+        </div>
+        <div id="surpriseReveal" class="reveal-panel hidden">
+          <div class="truth msg-card"><span>01</span><p>Happiest birthday doctor 🩺 Congratulations on successfully surviving another year of your own decisions! 🤭 May your birthday be full of funny moments with beautiful , enjoy  pannungaa avlothaaaaan 😌🥰</p><strong class="msg-from">— Gokul</strong></div>
+          <div class="truth msg-card"><span>02</span><p>Happy Birthday my special one💖, since our childhood we grew up together, shared everything, 🫂 never fails to stand for each other and never forget that I am always there for you, be happy forever ♾️ love you lots 🤗🥰 happy birthday my partner in crime 🤭🥳</p><strong class="msg-from">— Vithya</strong></div>
+          <div class="truth msg-card"><span>03</span><p>Happy Birthday, Gopika! 🎂❤️ Wishing you lots of happiness, success, and may you achieve your dream of becoming a doctor! 🩺✨ I’ll always be there for you, and you can call or message me anytime you want. 🤗❤️ Stay happy and keep smiling always! 🥰💗</p><strong class="msg-from">— Kanna</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — Notes -->
+    <section id="notes" class="section cream">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">WORDS OF APPRECIATION</p>
+          <h2>Little Notes <em>for Gopika ✦</em></h2>
+          <p>Tap a card to open its message.</p>
+        </div>
+        <div class="notes-grid">
+          <article class="note-card reveal"><div class="note-front"><span>01</span><h3>To The Future Doctor</h3><p>Your empathy, focus and quiet determination make everyone believe in miracles.</p><small>Tap to open ↗</small></div><div class="note-back"><span>♥</span><p>Keep caring. Keep learning. Keep becoming the doctor you dream of being.</p></div></article>
+          <article class="note-card reveal"><div class="note-front"><span>02</span><h3>That Contagious Smile</h3><p>Your smile lights up the entire room.</p><small>Tap to open ↗</small></div><div class="note-back"><span>♥</span><p>Never underestimate how much brightness you bring into ordinary moments.</p></div></article>
+          <article class="note-card reveal"><div class="note-front"><span>03</span><h3>Dedication & Heart</h3><p>Your dedication to your dream is truly inspiring.</p><small>Tap to open ↗</small></div><div class="note-back"><span>♥</span><p>One day at a time. One dream at a time. You're getting there.</p></div></article>
+          <article class="note-card reveal"><div class="note-front"><span>04</span><h3>A Rare Gem</h3><p>Your kindness and pure heart are rare.</p><small>Tap to open ↗</small></div><div class="note-back"><span>♥</span><p>Stay exactly as genuine, thoughtful and wonderfully you as you are.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — Wish -->
+    <section id="wish" class="section blush">
+      <div class="container wish-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">MAKE A WISH</p>
+          <h2>A Little Wish <em>Corner ✦</em></h2>
+          <p>Send a heartfelt birthday wish or blessing for Gopika. It can be tiny. It can be huge. It just has to be yours.</p>
+          <div class="wish-decoration">♥</div>
+        </div>
+        <form id="wishForm" class="wish-card glass reveal">
+          <label for="wishInput">Write a Wish for Gopika</label>
+          <textarea id="wishInput" maxlength="240" placeholder="Write your heartfelt wish…"></textarea>
+          <div class="wish-footer"><span id="charCount">0 / 240</span><button class="btn btn-primary" type="submit">Save My Wish ✦</button></div>
+          <div id="wishSaved" class="saved-state hidden">Wish saved for Gopika ♥</div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 06 — Magic -->
+    <section id="magic" class="section cream magic-section">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">SURPRISE BOX</p>
+          <h2>A little more <em>birthday magic ✦</em></h2>
+          <p>Open, discover & celebrate.</p>
+        </div>
+        <div class="gift-wrap reveal">
+          <div id="gift" class="gift">
+            <div class="gift-lid"></div><div class="gift-box"></div><div class="gift-ribbon-v"></div><div class="gift-ribbon-h"></div><div class="gift-bow"></div>
+          </div>
+          <button id="giftButton" class="btn btn-accent" type="button">Open, discover & celebrate</button>
+        </div>
+        <div id="giftMessage" class="gift-message hidden">
+          <span class="gift-star">✦</span>
+          <h3>Happy Birthday, Gopika! ♥</h3>
+          <p>Light, comfort, healing energy, academic triumphs and genuine laughter — may this year hold all of them for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — Balloons -->
+    <section id="balloons" class="section blush balloon-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">FLOATING BLESSINGS</p>
+          <h2>Little messages are <em>floating up ✦</em></h2>
+          <p>Tap or click a balloon to discover a wish.</p>
+        </div>
+        <div class="balloon-stage reveal">
+          <div class="balloon b1" data-message="May happiness follow you in every lecture hall…"><span>♥</span></div>
+          <div class="balloon b2" data-message="May every exam bring confidence and every result bring a smile."><span>✦</span></div>
+          <div class="balloon b3" data-message="May your future white coat be filled with compassion."><span>+</span></div>
+          <div class="balloon b4" data-message="May you always find reasons to laugh."><span>♥</span></div>
+          <div class="balloon b5" data-message="May your dreams keep growing with you."><span>✧</span></div>
+          <div class="balloon-string"></div>
+          <div class="balloon-message"><span>SELECT A BALLOON</span><p id="balloonText">A little wish is waiting.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 — Night -->
+    <section id="night" class="section night-section">
+      <div class="stars"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+      <div class="moon"></div>
+      <div class="container night-content">
+        <p class="eyebrow light">UNDER THE CELESTIAL CANOPY</p>
+        <h2>The Starry Night <em>of Gopika</em></h2>
+        <p>A cinematic transition into the final celebration.</p>
+        <div class="constellation">✦ · ✧ · ✦ · · ✧ · ✦</div>
+        <button id="finaleButton" class="btn btn-gold" type="button">Start The Grand Finale 🎆</button>
+      </div>
+    </section>
+
+    <!-- 09 — Finale -->
+    <section id="finale" class="finale hidden">
+      <div class="finale-stars"></div>
+      <div id="finaleSky" class="finale-sky"></div>
+      <div class="finale-moon"></div>
+      <div class="f-cloud fc1"></div><div class="f-cloud fc2"></div><div class="f-cloud fc3"></div>
+      <span class="shoot s1"></span><span class="shoot s2"></span>
+      <div id="burst" class="burst"></div>
+      <button id="finaleClose" class="finale-close" type="button">Close ✕</button>
+      <div id="countdown" class="countdown">3</div>
+      <div id="finalCelebration" class="final-celebration hidden">
+        <div class="heart-ecg">
+          <div class="big-heart">♥</div>
+          <div class="ecg-wrap"><svg class="ecg-svg" viewBox="0 0 1200 60" preserveAspectRatio="none"><g fill="none" stroke="#ffb3c4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M0 30H36l8-7 8 7H68l7 5 9-30 10 52 8-27H118l10-9 10 9H150" transform="translate(0 0)"/><path d="M0 30H36l8-7 8 7H68l7 5 9-30 10 52 8-27H118l10-9 10 9H150" transform="translate(150 0)"/><path d="M0 30H36l8-7 8 7H68l7 5 9-30 10 52 8-27H118l10-9 10 9H150" transform="translate(300 0)"/><path d="M0 30H36l8-7 8 7H68l7 5 9-30 10 52 8-27H118l10-9 10 9H150" transform="translate(450 0)"/><path d="M0 30H36l8-7 8 7H68l7 5 9-30 10 52 8-27H118l10-9 10 9H150" transform="translate(600 0)"/><path d="M0 30H36l8-7 8 7H68l7 5 9-30 10 52 8-27H118l10-9 10 9H150" transform="translate(750 0)"/><path d="M0 30H36l8-7 8 7H68l7 5 9-30 10 52 8-27H118l10-9 10 9H150" transform="translate(900 0)"/><path d="M0 30H36l8-7 8 7H68l7 5 9-30 10 52 8-27H118l10-9 10 9H150" transform="translate(1050 0)"/></g></svg><span class="ecg-dot"></span></div>
+        </div>
+        <p class="final-eyebrow">ONCE AGAIN…</p>
+        <h2>Happy Birthday<br><em>Gopika! ♥</em></h2>
+        <p>May every heartbeat you listen to echo with life, healing, purpose and beautiful memories.</p>
+        <div class="floating-hearts">♥　✦　♥　✧　♥</div>
+      </div>
+    </section>
+
+    <!-- 10 — Birthday Note -->
+    <section id="note" class="section cream">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">A LETTER FROM THE HEART</p>
+          <h2>A Birthday Note <em>For You 💌</em></h2>
+          <p>A personal note from Kanna.</p>
+        </div>
+        <article class="letter-card reveal">
+          <div class="letter-top"><span>09.10.2004</span><span>♥</span></div>
+          <h3>Dear Gopss,</h3>
+          <p>Happy Birthday, Gopika! 🎂🥳❤️</p>
+          <p>I truly wish that you achieve everything you dream of in this life and reach a great place in the future. ✨💫 I’m always wishing and praying for your success. ❤️</p>
+          <p>In this life, you are definitely one of my favourite people. ❤️ And if you ask me who is really important to me, you are definitely one of those people. 🥹✨</p>
+          <p>I sincerely hope you achieve your dream of becoming a doctor. 🩺👩‍⚕️💐 I’m wishing you all the very best for your future. May you become a successful doctor and make everyone around you proud. ❤️✨</p>
+          <p>Enjoy this day to the fullest, keep smiling, stay happy, and make lots of beautiful memories. 🥰🎉</p>
+          <p>Once again, Happy Birthday, Gopika! 🎂❤️✨ Stay happy and keep shining always! 🌸💫</p>
+          <div class="signature">-- Kanna✨</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 11 — Treat -->
+    <section id="treat" class="section blush">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">CELEBRATION CHOICE</p>
+          <h2>Choose Your Treat <em>🎁</em></h2>
+          <p>What's the birthday treat? 👀</p>
+        </div>
+        <div class="treat-grid">
+          <button class="treat-card reveal" data-treat="Coffee">
+            <span class="treat-icon">☕</span><strong>Coffee</strong><p>Just a small coffee, maybe? 😌</p><span class="select-pill">Select</span>
+          </button>
+          <button class="treat-card reveal" data-treat="Biryani">
+            <span class="treat-icon">🍗</span><strong>Biryani</strong><p>That sounds like a plan! 😋</p><span class="select-pill">Select</span>
+          </button>
+        </div>
+        <div id="treatConfirmation" class="treat-confirm hidden"></div>
+      </div>
+    </section>
+
+    <!-- 12 — Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div><strong>For Gopika ♥</strong><span>Celebrating Gopika · Future Doctor</span></div>
+        <span>Made with care · 09.10.2004</span>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
