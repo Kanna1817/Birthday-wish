@@ -195,3 +195,16 @@ h2 em,h1 em{font-family:var(--script);font-weight:400;color:var(--plum);font-siz
 .balloon{z-index:3;user-select:none;-webkit-tap-highlight-color:transparent}
 .balloon-message{z-index:2}
 .balloon:hover{filter:brightness(1.05)}
+
+
+/* Public wish list: additive styling only; existing page styles remain unchanged. */
+.wish-public-area{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:22px;margin-top:4px;width:100%}
+.public-wishes{width:100%;max-width:900px;border:1px solid var(--line);border-radius:var(--radius-xl);padding:28px;background:rgba(255,255,255,.62);box-shadow:var(--shadow)}
+.public-wishes h3{font-family:"Cormorant Garamond",serif;font-size:clamp(26px,3vw,36px);color:var(--plum);text-align:center;margin-bottom:8px}
+.wishes-status{text-align:center;color:var(--muted);font-size:13px;margin:0 0 18px}
+.wishes-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.public-wish-card{min-width:0;padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:#fff;overflow-wrap:anywhere}
+.public-wish-card p{margin:0 0 15px;color:var(--ink);font-size:14px;line-height:1.75;white-space:pre-wrap}
+.public-wish-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px}
+.public-wish-meta strong{color:var(--plum);font-size:12px}
+@media(max-width:760px){.public-wishes{padding:20px 16px}.wishes-list{grid-template-columns:1fr}.wish-public-area{margin-top:0}}

@@ -74,6 +74,65 @@ $("#surpriseButton").addEventListener("click", () => {
 $$(".note-card").forEach(card => card.addEventListener("click", () => card.classList.toggle("open")));
 
 const wishInput = $("#wishInput");
+const supabaseConfig = () => window.SUPABASE_CONFIG;
+const publicWishesPanel = $("#publicWishes");
+const wishesList = $("#wishesList");
+const wishesStatus = $("#wishesStatus");
+
+function formatWishDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "" : date.toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+}
+
+async function loadPublicWishes() {
+  const config = supabaseConfig();
+  if (!config?.url || !config?.publishableKey) {
+    wishesStatus.textContent = "Wishes are temporarily unavailable. Please check the Supabase setup.";
+    return;
+  }
+  wishesStatus.textContent = "Loading wishes…";
+  wishesList.replaceChildren();
+  try {
+    const response = await fetch(`${config.url}/rest/v1/wishes?select=id,name,wish_text,created_at&order=created_at.desc`, {
+      headers: { apikey: config.publishableKey, Authorization: `Bearer ${config.publishableKey}` }
+    });
+    if (!response.ok) throw new Error(await response.text() || `HTTP ${response.status}`);
+    const wishes = await response.json();
+    if (!wishes.length) {
+      wishesStatus.textContent = "No wishes yet. Be the first to leave Gopika a birthday wish! ♥";
+      return;
+    }
+    wishesStatus.textContent = `${wishes.length} ${wishes.length === 1 ? "wish" : "wishes"} for Gopika ♥`;
+    wishes.forEach(wish => {
+      const card = document.createElement("article");
+      card.className = "public-wish-card";
+      const message = document.createElement("p");
+      message.textContent = wish.wish_text || "";
+      const meta = document.createElement("div");
+      meta.className = "public-wish-meta";
+      const author = document.createElement("strong");
+      author.textContent = wish.name?.trim() || "A friend";
+      const date = document.createElement("time");
+      date.textContent = formatWishDate(wish.created_at);
+      if (wish.created_at) date.dateTime = wish.created_at;
+      meta.append(author, date);
+      card.append(message, meta);
+      wishesList.append(card);
+    });
+  } catch (error) {
+    console.error("Could not load public wishes:", error);
+    wishesStatus.textContent = "Could not load wishes. Please refresh and try again.";
+  }
+}
+
+$("#viewWishesButton").addEventListener("click", async () => {
+  const opening = publicWishesPanel.classList.contains("hidden");
+  publicWishesPanel.classList.toggle("hidden", !opening);
+  $("#viewWishesButton").setAttribute("aria-expanded", String(opening));
+  if (opening) await loadPublicWishes();
+});
+
 wishInput.addEventListener("input", () => $("#charCount").textContent = `${wishInput.value.length} / 240`);
 $("#wishForm").addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -108,6 +167,7 @@ $("#wishForm").addEventListener("submit", async (event) => {
     wishInput.value = "";
     $("#charCount").textContent = "0 / 240";
     showToast("Your wish has been saved for Gopika ♥");
+    if (!publicWishesPanel.classList.contains("hidden")) await loadPublicWishes();
   } catch (error) {
     console.error("Supabase wish save failed:", error);
     showToast("Could not save the wish. Check your Supabase table and RLS policies.");

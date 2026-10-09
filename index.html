@@ -146,6 +146,14 @@
           <div class="wish-footer"><span id="charCount">0 / 240</span><button class="btn btn-primary" type="submit">Save My Wish ✦</button></div>
           <div id="wishSaved" class="saved-state hidden">Wish saved for Gopika ♥</div>
         </form>
+        <div class="wish-public-area">
+          <button id="viewWishesButton" class="btn btn-ghost" type="button" aria-expanded="false" aria-controls="publicWishes">View Wishes ♥</button>
+          <div id="publicWishes" class="public-wishes hidden" aria-live="polite">
+            <h3>Birthday Wishes for Gopika ♥</h3>
+            <p class="wishes-status" id="wishesStatus">Tap “View Wishes” to read messages.</p>
+            <div id="wishesList" class="wishes-list"></div>
+          </div>
+        </div>
       </div>
     </section>
 
