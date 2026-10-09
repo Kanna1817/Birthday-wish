@@ -75,14 +75,46 @@ $$(".note-card").forEach(card => card.addEventListener("click", () => card.class
 
 const wishInput = $("#wishInput");
 wishInput.addEventListener("input", () => $("#charCount").textContent = `${wishInput.value.length} / 240`);
-$("#wishForm").addEventListener("submit", (event) => {
+$("#wishForm").addEventListener("submit", async (event) => {
   event.preventDefault();
-  if (!wishInput.value.trim()) {
-    wishInput.focus();
+  const wishText = wishInput.value.trim();
+  if (!wishText) { wishInput.focus(); return; }
+  if (wishText.length > 240) { showToast("Please keep your wish under 240 characters."); return; }
+  const config = window.SUPABASE_CONFIG;
+  if (!config?.url || !config?.publishableKey) {
+    showToast("Supabase setup is missing. Please check supabase-config.js.");
     return;
   }
-  $("#wishSaved").classList.remove("hidden");
-  showToast("Your wish has been saved for Gopika ♥");
+  const button = $("#wishForm button[type=submit]");
+  button.disabled = true;
+  button.textContent = "Saving…";
+  try {
+    const response = await fetch(`${config.url}/rest/v1/wishes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": config.publishableKey,
+        "Authorization": `Bearer ${config.publishableKey}`,
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({ name: "", wish_text: wishText })
+    });
+    if (!response.ok) {
+      const details = await response.text();
+      throw new Error(details || `HTTP ${response.status}`);
+    }
+    $("#wishSaved").textContent = "Wish saved for Gopika ♥";
+    $("#wishSaved").classList.remove("hidden");
+    wishInput.value = "";
+    $("#charCount").textContent = "0 / 240";
+    showToast("Your wish has been saved for Gopika ♥");
+  } catch (error) {
+    console.error("Supabase wish save failed:", error);
+    showToast("Could not save the wish. Check your Supabase table and RLS policies.");
+  } finally {
+    button.disabled = false;
+    button.textContent = "Save My Wish ✦";
+  }
 });
 
 $("#giftButton").addEventListener("click", () => {

@@ -1,20 +1,17 @@
-# Gopika Birthday — Future Doctor Pastel Theme
+Gopika Birthday Website — Supabase configured
 
-A responsive static birthday website for Gopika. The login screen blends the future-doctor artwork (login-bg.jpg) with a live login form; the home hero uses an anime-style illustration (hero-girl.svg) of a girl from behind with a stethoscope. The same soft cream, sage green, blush, and warm-gold visual language is carried through the complete website.
+Theme/layout: kept from the supplied BalloonFix ZIP (sage green, cream, blush accents, doctor theme and balloon animation).
 
-## Login
-- Name: Gopika
-- Day: 09
-- Month: 10
-- Year: 2004
+Supabase connection
+- Project URL is configured in supabase-config.js.
+- Browser-safe publishable key is configured there too. Never put a secret/service_role key in frontend files.
+- The Save My Wish form now POSTs to public.wishes using the Supabase REST API.
+- Run supabase-schema.sql only if the wishes table/policies have not already been created. If you already ran the SQL successfully, do not need to run it again.
 
-## Included
-- Blended photo + form unlock screen with DD/MM/YYYY dropdowns
-- Functional birthday unlock validation
-- Responsive navigation and mobile menu
-- Surprise reveal, flip notes, wish corner, gift reveal
-- Balloon messages, night-sky finale, birthday note and treat selection
-- No music UI
-- No backend or database required
+Test
+1. Upload the contents of this folder to your GitHub Pages repository root (index.html should be at root).
+2. Open the website and submit a test wish.
+3. Check Supabase Dashboard > Table Editor > wishes.
+4. If saving fails, check browser console and Supabase RLS policies/API settings.
 
-Open `index.html` in a browser.
+Note: This ZIP has not been live-tested against your Supabase project from this environment.
