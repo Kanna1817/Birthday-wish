@@ -126,12 +126,20 @@ async function loadPublicWishes() {
   }
 }
 
-$("#viewWishesButton").addEventListener("click", async () => {
+// Keep the public wishes control callable directly from the button as well,
+// and show the panel immediately before waiting for the network request.
+window.togglePublicWishes = async function togglePublicWishes() {
+  const button = $("#viewWishesButton");
   const opening = publicWishesPanel.classList.contains("hidden");
   publicWishesPanel.classList.toggle("hidden", !opening);
-  $("#viewWishesButton").setAttribute("aria-expanded", String(opening));
-  if (opening) await loadPublicWishes();
-});
+  button.setAttribute("aria-expanded", String(opening));
+  if (opening) {
+    wishesStatus.textContent = "Loading wishes…";
+    publicWishesPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    await loadPublicWishes();
+  }
+};
+$("#viewWishesButton").addEventListener("click", window.togglePublicWishes);
 
 wishInput.addEventListener("input", () => $("#charCount").textContent = `${wishInput.value.length} / 240`);
 $("#wishForm").addEventListener("submit", async (event) => {
