@@ -141,8 +141,10 @@
           <div class="wish-decoration">♥</div>
         </div>
         <form id="wishForm" class="wish-card glass reveal">
+          <label for="wishNameInput">Your Name</label>
+          <input id="wishNameInput" class="wish-name-input" type="text" maxlength="30" placeholder="Enter your name" autocomplete="name" required>
           <label for="wishInput">Write a Wish for Gopika</label>
-          <textarea id="wishInput" maxlength="240" placeholder="Write your heartfelt wish…"></textarea>
+          <textarea id="wishInput" maxlength="240" placeholder="Write your heartfelt wish…" required></textarea>
           <div class="wish-footer"><span id="charCount">0 / 240</span><button class="btn btn-primary" type="submit">Save My Wish ✦</button></div>
           <div id="wishSaved" class="saved-state hidden">Wish saved for Gopika ♥</div>
         </form>
@@ -286,6 +288,6 @@
   </main>
 
   <script src="supabase-config.js"></script>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

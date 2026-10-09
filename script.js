@@ -74,6 +74,7 @@ $("#surpriseButton").addEventListener("click", () => {
 $$(".note-card").forEach(card => card.addEventListener("click", () => card.classList.toggle("open")));
 
 const wishInput = $("#wishInput");
+const wishNameInput = $("#wishNameInput");
 const supabaseConfig = () => window.SUPABASE_CONFIG;
 const publicWishesPanel = $("#publicWishes");
 const wishesList = $("#wishesList");
@@ -144,7 +145,10 @@ $("#viewWishesButton").addEventListener("click", window.togglePublicWishes);
 wishInput.addEventListener("input", () => $("#charCount").textContent = `${wishInput.value.length} / 240`);
 $("#wishForm").addEventListener("submit", async (event) => {
   event.preventDefault();
+  const wishName = wishNameInput.value.trim();
   const wishText = wishInput.value.trim();
+  if (!wishName) { wishNameInput.focus(); showToast("Please enter your name first."); return; }
+  if (wishName.length > 30) { wishNameInput.focus(); showToast("Please keep your name under 30 characters."); return; }
   if (!wishText) { wishInput.focus(); return; }
   if (wishText.length > 240) { showToast("Please keep your wish under 240 characters."); return; }
   const config = window.SUPABASE_CONFIG;
@@ -164,7 +168,7 @@ $("#wishForm").addEventListener("submit", async (event) => {
         "Authorization": `Bearer ${config.publishableKey}`,
         "Prefer": "return=minimal"
       },
-      body: JSON.stringify({ name: "", wish_text: wishText })
+      body: JSON.stringify({ name: wishName, wish_text: wishText })
     });
     if (!response.ok) {
       const details = await response.text();
